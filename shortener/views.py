@@ -7,6 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 
 def index(request):
+    print(request.user.pay_plan.name)
     user = Users.objects.filter(username="admin").first()
     email = user.email if user else "Anonymous User!"
     return render(request, "base.html", {"welcome_msg": f"Hello {email}", "hello": "world"})
