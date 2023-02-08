@@ -1,0 +1,4 @@
+/myvenv/
+db.sqlite3
+/shortener/migrations/
+/shortener/__pycache__/
