@@ -79,7 +79,7 @@ def logout_view(request):
 @login_required
 def list_view(request):
     page = int(request.GET.get("p", 1))
-    users = Users.objects.all().order_by("-id") # - 기호를 생략하면 오름차순
+    users = Users.objects.all().order_by("id") # - 기호를 넣으면 내림차순, 생략하면 오름차순. ex) -id 또는 id
     paginator = Paginator(users, 10)
     users = paginator.get_page(page)
 
