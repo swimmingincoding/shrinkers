@@ -14,8 +14,7 @@ def email_masker(value, arg):
 
 @register.simple_tag(name="test_tags", takes_context=True)
 def test_tags(context):
-    for c in context:
-        print(c)
+    
     tag_html = "<span class='badge badge-primary'>테스트 태그</span>"
 
     return mark_safe(tag_html)
