@@ -1,3 +1,5 @@
+# Git Clone 이후 환경 설정
+
 1. Git Clone 수행
 2. python 가상환경 설정 및 requirements.txt를 활용한 python 패키지 설치
 3. shortener 폴더 이름을 shortener_ex로 변경

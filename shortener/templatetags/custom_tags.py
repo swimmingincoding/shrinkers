@@ -19,4 +19,3 @@ def test_tags(context):
     tag_html = "<span class='badge badge-primary'>테스트 태그</span>"
 
     return mark_safe(tag_html)
-
