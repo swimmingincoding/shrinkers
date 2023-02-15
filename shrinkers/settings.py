@@ -24,9 +24,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-mzo!wz%qt35elhf&brkbl&q_oou-uhj=r5qg)pcfah=pp9@kst'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+ENV = os.environ.get("DJANGO_ENV", "dev")
 
-ALLOWED_HOSTS = []
+if ENV == "dev":
+    DEBUG = True
+else:
+    DEBUG = False
+
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -39,9 +44,13 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "shortener.apps.ShortenerConfig",
-    "debug_toolbar", # Django Debug Toolbar,
-    "django_seed", # Django seed
 ]
+
+# if DEBUG:
+#     INSTALLED_APPS += [
+#         "debug_toolbar", # Django Debug Toolbar,
+#         "django_seed", # Django seed
+#     ]
 
 INTERNAL_IPS = [
     "127.0.0.1",
@@ -57,8 +66,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "debug_toolbar.middleware.DebugToolbarMiddleware", # Django Debug Toolbar
 ]
+
+# if DEBUG:
+#     MIDDLEWARE += [
+#         "debug_toolbar.middleware.DebugToolbarMiddleware", # Django Debug Toolbar
+#     ]
 
 ROOT_URLCONF = 'shrinkers.urls'
 
