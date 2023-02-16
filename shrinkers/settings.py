@@ -35,7 +35,7 @@ ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
-AUTH_USER_MODEL = "shortener.Users"
+# AUTH_USER_MODEL = "shortener.Users"
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -99,8 +99,16 @@ WSGI_APPLICATION = 'shrinkers.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "app_db",
+        "USER": "root",
+        "PASSWORD": "test-db1234!",
+        "HOST": "34.64.244.60",
+        "PORT": 3306,
+        "OPTIONS": {
+            "autocommit": True,
+            "charset": "utf8mb4"
+        }
     }
 }
 
