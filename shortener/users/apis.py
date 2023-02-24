@@ -21,3 +21,12 @@ def update_telegram_username(request, body: TelegramUpdateSchema):
         return 404, {"msg": "No user found"}
     user.update(telegram_username=body.username)
     return 201, None
+
+
+@user.get("/train/")
+def train(request, DL_model: str, epochs: int, learning_rate: float):
+    return {
+        "딥러닝 모델": DL_model,
+        "학습 에폭": epochs,
+        "러닝레이트": learning_rate
+    }
